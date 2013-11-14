@@ -4,8 +4,8 @@ feature 'The navbar' do
   scenario 'should show login and signup links' do
     visit root_path
     within('ul.nav.navbar-nav.navbar-right') do
-      page.should have_link('Login')
-      page.should have_link('Signup')
+      page.should have_link('Login', href: new_user_session_path)
+      page.should have_link('Signup', href: new_user_registration_path)
     end
   end
 end
