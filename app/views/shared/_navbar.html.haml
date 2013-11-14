@@ -7,3 +7,10 @@
       %span.icon-bar
     .navbar-brand Crate
 
+  .collapse.navbar-collapse#crate-navbar-collapse
+    %ul.nav.navbar-nav
+      - unless user_signed_in?
+        %li= link_to 'Home', root_path
+      - if user_signed_in?
+        %li= link_to 'Profile', edit_user_registration_path
+    = render 'shared/navbar_loginout'
