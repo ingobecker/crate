@@ -1,0 +1,5 @@
+%ol
+  - resource.tracks.each do |track|
+    %li 
+      = track.name
+      (#{track.duration} sec.)

@@ -26,6 +26,10 @@ feature 'The navbar for signed in user' do
     within('ul.nav.navbar-nav.navbar-right') do
       page.should have_link 'Logout'
     end
+    
+    within('ul.nav.navbar-nav:first-child') do
+      page.should have_link 'My crate'
+    end
 
   end
 end

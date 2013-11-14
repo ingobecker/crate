@@ -1,0 +1,19 @@
+%h1 Explore all Crates
+
+- if collection.any?
+  .row
+    .col-md-6
+      .panel-group#album-list
+        - collection.each do |album|
+          .panel.panel-default
+            .panel-heading
+              = link_to "#album-#{album.id}", class: :'accordion-toggle', data: {toggle: :collapse, parent: :'#album-list'} do
+                %strong= album.name
+                by 
+                %strong= album.artist.name
+                %br
+                %small (#{album.tracks_count} Tracks)
+            .panel-collapse.collapse{id: "album-#{album.id}", data: {url: resource_url(album)} }
+              .panel-body
+- else
+  No albums found.
