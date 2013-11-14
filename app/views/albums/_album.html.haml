@@ -2,4 +2,4 @@
   - resource.tracks.each do |track|
     %li 
       = track.name
-      (#{track.duration} sec.)
+      (#{number_to_duration track.duration})

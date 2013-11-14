@@ -10,7 +10,7 @@ artists.each do |artist|
   rand(1..10).times do 
     albums << artist.albums.create!(name: Faker::Lorem.word)
     rand(8..14).times do 
-      albums.last.tracks.create!(name: Faker::Lorem.word, duration: 420)
+      albums.last.tracks.create!(name: Faker::Lorem.word, duration: rand(32..678))
     end
   end
 end
