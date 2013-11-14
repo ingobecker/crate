@@ -7,4 +7,5 @@ describe Album do
   it { should have_db_index(:name) }
   it { should belong_to(:artist) }
   it { should have_many(:tracks) }
+  it { should have_and_belong_to_many(:users) }
 end
