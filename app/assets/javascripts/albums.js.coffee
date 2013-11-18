@@ -3,6 +3,33 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+
+  $('#album-list .panel-heading a.btn').tooltip()
+  if $('#album-list[data-controller=albums]').length
+
+    toggleTitle = (link)->
+      link = $(link)
+      title_swap = link.attr('data-original-title')
+      link.tooltip('hide').attr('data-original-title', link.attr('data-titletoggle'))
+      link.tooltip('fixTitle')
+      link.tooltip('show')
+      link.attr 'data-titletoggle', title_swap
+
+    handler =
+      delete: (link)->
+        $(link).bind 'ajax:success', (e)->
+          $(this).find('span').toggleClass 'glyphicon-plus glyphicon-minus'
+
+      post: (link)->
+        $(link).bind 'ajax:success', (e)->
+          $(this).find('span').toggleClass 'glyphicon-plus glyphicon-minus'
+
+
+    $('.panel-heading a.btn').each (i, v)->
+      handler[$(v).attr('data-method')](this)
+      $(v).click ()->
+        toggleTitle v
+
   $.each $('.panel-collapse'), (k, v)->
     $(v).on 'show.bs.collapse', ->
       inner = $(v).find('.panel-body')

@@ -13,6 +13,6 @@
         %li= link_to 'Home', root_path
       %li= link_to 'Explore', albums_path
       - if user_signed_in?
-        %li= link_to 'My crate', albums_path
+        %li= link_to 'My crate', user_albums_path
         %li= link_to 'Profile', edit_user_registration_path
     = render 'shared/navbar_loginout'
