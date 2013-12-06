@@ -26,6 +26,6 @@ FactoryGirl.define do
 
   factory :track do
     sequence(:name){ |n| "Schlechter Track #{n}" }
-    duration 42
+    duration_str '02:03'
   end
 end

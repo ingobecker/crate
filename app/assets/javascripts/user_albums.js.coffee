@@ -12,6 +12,21 @@ ready = ->
       handler[$(v).attr('data-method')](this)
       $(v).tooltip()
 
+  if $('form#new_album').length
+    $('form#new_album #add-track').click (e)->
+      e.preventDefault()
+      num = $('form#new_album .tracks .form-group').length / 2
+      last_track = $('.tracks .form-group').slice(-2)
+      console.log last_track
+      new_track = last_track.clone()
+      $.each ['name', 'duration'], (i, e)->
+          new_track.find(".#{e}")
+            .val('')
+            .attr('name', "album[tracks_attributes][#{num}][#{e}]")
+            .closest('.has-error').removeClass('has-error')
+            .find('span').remove()
+      new_track.insertAfter(last_track.last())
+
 $(document).on('page:load', ready)
 $ ->
   ready()

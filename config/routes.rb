@@ -2,7 +2,7 @@ Crate::Application.routes.draw do
   root 'home#index'
   devise_for :users
   resources :albums, only: [:index, :show]
-  resources :user_albums, path: 'my_albums', only: [:index] do
+  resources :user_albums, path: 'my_albums', only: [:index, :new, :create] do
     post 'add', on: :member
     delete 'remove', on: :member
   end

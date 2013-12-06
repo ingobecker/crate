@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+
+en:
+  simple_form:
+    labels:
+      album:
+        tracks:
+          duration_str: 'Duration'
+    placeholders:
+      album:
+        tracks:
+          duration_str: 'hh:mm:ss'

@@ -11,7 +11,9 @@ artists.each do |artist|
     albums << artist.albums.create!(name: Faker::Lorem.word)
     user.albums << albums.last if albums.count % 2 == 1
     rand(8..14).times do 
-      albums.last.tracks.create!(name: Faker::Lorem.word, duration: rand(32..678))
+      t=albums.last.tracks.new(name: Faker::Lorem.word, duration: rand(32..678))
+      t.duration_str
+      t.save!
     end
   end
 end
