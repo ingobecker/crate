@@ -6,26 +6,30 @@
         - collection.each do |album|
           .panel.panel-default
             .panel-heading
-              = link_to "#album-#{album.id}", data: {toggle: :collapse, parent: :'#album-list'} do
-                %strong= album.name
-                by 
-                %strong= album.artist.name
-                - if @user_album_ids
-                  - if @user_album_ids.include? album.id
-                    = link_to(remove_user_album_path(album),
-                      remote: true, method: :delete,
-                      class: ['btn', 'btn-default', 'btn-xs'],
-                      data: {toggle: :tooltip, title: 'Remove from my crate', titletoggle: 'Add to my crate'}) do
-                      %span.glyphicon.glyphicon-minus
-                  - else
-                    = link_to(add_user_album_path(album),
-                      remote: true, method: :post,
-                      class: ['btn', 'btn-default', 'btn-xs'],
-                      title: 'Add to my crate',
-                      data: {toggle: :tooltip, titletoggle: 'Remove from my crate'}) do
-                      %span.glyphicon.glyphicon-plus
-              %br
-              %small (#{album.tracks_count} Tracks)
+              .heading-spacer
+                = link_to "#album-#{album.id}", data: {toggle: :collapse, parent: :'#album-list'} do
+                  = image_tag album.cover.url(:tiny), class: :pop_cover, data: { content_selector: "#pop_cover_#{album.id}", trigger: :hover }, style: 'float: left;'
+                  %strong= album.name
+                  by 
+                  %strong= album.artist.name
+                  - if @user_album_ids
+                    - if @user_album_ids.include? album.id
+                      = link_to(remove_user_album_path(album),
+                        remote: true, method: :delete,
+                        class: ['btn', 'btn-default', 'btn-xs'],
+                        data: {toggle: :tooltip, title: 'Remove from my crate', titletoggle: 'Add to my crate'}) do
+                        %span.glyphicon.glyphicon-minus
+                    - else
+                      = link_to(add_user_album_path(album),
+                        remote: true, method: :post,
+                        class: ['btn', 'btn-default', 'btn-xs'],
+                        title: 'Add to my crate',
+                        data: {toggle: :tooltip, titletoggle: 'Remove from my crate'}) do
+                        %span.glyphicon.glyphicon-plus
+                %br
+                %div.hide{id: "pop_cover_#{album.id}"}
+                  = image_tag album.cover.url :thumb
+                %small (#{album.tracks_count} Tracks)
             .panel-collapse.collapse{id: "album-#{album.id}", data: {url: album_path(album)}}
               .panel-body
 - else

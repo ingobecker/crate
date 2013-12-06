@@ -4,6 +4,13 @@
 
 ready = ->
 
+  if $('#album-list').length
+    $('.pop_cover').each (i, v)->
+      v = $(v)
+      v.popover
+        content: $(v.attr('data-content-selector')).html()
+        html: true
+
   $('#album-list .panel-heading a.btn').tooltip()
   if $('#album-list[data-controller=albums]').length
 

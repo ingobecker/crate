@@ -1,7 +1,10 @@
+- if resource.errors.any?
+  = resource.errors.inspect
 = simple_form_for resource, url: user_albums_path(resource), html: {novalidate: true} do |f|
   = f.input :name, label: 'Album name'
   = f.simple_fields_for :artist do |artist_f|
     = artist_f.input :name, label: 'Artist name'
+  = f.input :cover
 
   .tracks
     = f.simple_fields_for :tracks do |tracks_f|

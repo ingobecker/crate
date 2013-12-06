@@ -34,7 +34,7 @@ class UserAlbumsController < AbstractAlbumsController
 
   class AlbumParams
     def self.permit params
-      p = {album: params.fetch(:album, {}).permit(:name, artist_attributes: :name, tracks_attributes: [:name, :duration_str])}
+      p = {album: params.fetch(:album, {}).permit(:name, :cover, artist_attributes: :name, tracks_attributes: [:name, :duration_str])}
       album = p[:album]
       if album.any?
         album.merge artist_attributes: album.fetch(:artist_attributes).permit(:name)

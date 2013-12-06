@@ -12,6 +12,7 @@ feature 'Add album form', js: true do
       page.should have_field 'Album name'
       page.should have_field 'Track name'
       page.should have_field 'Duration'
+      page.should have_field 'Cover'
     end
   end
 
@@ -47,6 +48,5 @@ feature 'Add album form', js: true do
 
     end
   end
-
 
 end

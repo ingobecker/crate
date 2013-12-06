@@ -17,6 +17,7 @@ feature 'Albums page with existing album', js: true do
     visit albums_path
     page.should have_content('(2 Tracks)')
     page.should_not have_content('.panel-heading a.btn')
+    page.should have_css('img.pop_cover')
   end
 
   scenario 'click on album' do
@@ -37,7 +38,12 @@ feature 'Albums page with existing album and user signed in', js: true do
 
   scenario 'mouse over button' do
     find('.panel-heading a.btn').trigger(:mouseover)
-    find('.tooltip').visible?
+    expect(find('.tooltip').visible?).to be_true
+  end
+
+  scenario 'mouse over cover' do
+    all('.panel-heading img.pop_cover').first.trigger(:mouseover)
+    expect(find('.popover').visible?).to be_true
   end
 
   scenario 'click on the plus-button of the album' do
@@ -57,7 +63,6 @@ feature 'Albums page with existing album and user signed in', js: true do
     sleep 1
     visit user_albums_path
     page.should have_content('No albums found.')
-
   end
 
 end

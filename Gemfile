@@ -36,6 +36,7 @@ gem 'therubyracer'
 gem 'erb2haml', :group => :development
 gem 'acts_as_list'
 gem 'inherited_resources'
+gem 'paperclip', '~> 3.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

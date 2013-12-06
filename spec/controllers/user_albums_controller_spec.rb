@@ -19,8 +19,9 @@ describe UserAlbumsController do
     
     h = { album: {
             name: 'foo',
+            cover: 'foo',
             artist_attributes: {
-              name: 'foo'
+              name: 'foo',
             },
             tracks_attributes: {
               '0' => {
@@ -61,16 +62,17 @@ describe UserAlbumsController do
     it{ should render_template(partial: '_form') }
     it{ should render_with_layout(:application) }
   end
-=begin
+
   describe 'POST create' do
     before do
-      post :create, 
+      a = FactoryGirl.attributes_for :album
+      post :create, album: {name: 'baz',
+                            cover: fixture_file_upload('files/cover.jpg', 'image/jpeg'),
+                            artist_attributes: {name: 'foo'},
+                            tracks_attributes: {'0' => {name: 'bar', duration_str: '00:23'}}}
     end
 
-    it{ should respond_with(:success) }
-    it{ should render_template(:new) }
-    it{ should render_with_layout(:application) }
+    it{ should redirect_to(user_albums_path) }
+    it{ should set_the_flash }
   end
-=end
-
 end
