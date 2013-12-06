@@ -17,7 +17,6 @@ ready = ->
       e.preventDefault()
       num = $('form#new_album .tracks .form-group').length / 2
       last_track = $('.tracks .form-group').slice(-2)
-      console.log last_track
       new_track = last_track.clone()
       $.each ['name', 'duration'], (i, e)->
           new_track.find(".#{e}")
