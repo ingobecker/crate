@@ -1,6 +1,10 @@
-class UserAlbumsController < AlbumsController
+class UserAlbumsController < AbstractAlbumsController
+
   before_filter :authenticate_user!
-  defaults resource_class: Album, collection_name: 'albums'
+  inherit_resources
+  include AlbumsBase
+  actions :new, :create, :edit, :update, :index
+  respond_to :html
 
   def add
     if request.xhr?
