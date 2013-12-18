@@ -1,1 +1,6 @@
-= render partial: 'album', object: resource
+.panel.panel-default
+  .panel-heading
+    = image_tag resource.cover.url(:tiny), class: 'cover-head'
+    %h1 #{resource.name} by #{resource.artist.name}
+  .panel-body
+    = render partial: 'album', object: resource

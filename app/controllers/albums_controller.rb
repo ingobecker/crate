@@ -6,9 +6,17 @@ class AlbumsController < AbstractAlbumsController
 
   def show
     if request.xhr?
-      render :show, layout: false
+      render :show_body, layout: false
     else
-      head :bad_request
+      render :show
     end
+  end
+
+  def search
+    options = {q: params[:q]}
+    options[:user] = current_user if params[:scope] == 'true'
+
+    s = Album.search options
+    render json: s
   end
 end

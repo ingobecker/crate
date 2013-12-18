@@ -17,6 +17,7 @@ class UserAlbumsController < AbstractAlbumsController
   def add
     if request.xhr?
       current_user.albums << resource
+      resource.tire.update_index
       head :ok
     else
       head :bad_request
@@ -26,6 +27,7 @@ class UserAlbumsController < AbstractAlbumsController
   def remove
     if request.xhr?
       current_user.albums.destroy resource
+      resource.tire.update_index
       head :ok
     else
       head :bad_request
