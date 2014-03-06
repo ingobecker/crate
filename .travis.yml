@@ -4,6 +4,7 @@ services: elasticsearch
 
 before_script:
   - export SECRET_TOKEN=$(rake secret)
+  - psql -c 'create database crate_test;' -U postgres
   - bundle exec rake db:migrate
 
 script:
