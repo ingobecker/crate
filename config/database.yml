@@ -19,9 +19,10 @@ test:
   adapter: postgresql
   encoding: unicode
   hostname: localhost
-  database: crate_test
+  database: travis_ci_test
   username: postgres
-  password: 
+  password: <%= ENV['PG_PASSWD'] %>
+
   pool: 5
 
 production:
