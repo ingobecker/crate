@@ -25,18 +25,18 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+#gem 'jbuilder', '~> 1.2'
 gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'devise'
 gem 'ffaker'
-gem 'bootstrap-sass', '~> 3.0.2.0'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'therubyracer'
 gem 'erb2haml', :group => :development
 gem 'acts_as_list'
 gem 'inherited_resources'
-gem 'paperclip', '~> 3.0'
+gem 'paperclip', '~> 4.1'
 gem 'tire'
 gem 'select2-rails'
 
@@ -54,7 +54,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'poltergeist'
-  gem 'capybara-webkit'
   gem 'database_cleaner'
 end
 
