@@ -1,5 +1,7 @@
 # Crate - a rails work sample
 
+[![Build Status](https://travis-ci.org/ingobecker/crate.png?branch=master)](https://travis-ci.org/ingobecker/crate)
+
 ## Overview
 
 This rails application comprises a virtual music collection to organize 
@@ -18,6 +20,11 @@ It offers the following features:
 * fulltext-search with autocompletion
 * restricted search inside own albums
 
+The app was developed and tested using Archlinux.
+Due to a lack of access to proprietary operating-systems
+i can only assure proper operation on above-named systems
+and the like.
+
 ## Runtime requirements
 
 This rails app has the following runtime-dependencies:
@@ -28,7 +35,7 @@ This rails app has the following runtime-dependencies:
 
 Make sure you have them running before starting the app.
 This app doesn't ship with a secret_key_base in place.
-Instead it uses the a env variable called SECRET_TOKEN.
+Instead it uses a env variable called SECRET_TOKEN.
 Use the following line to run the dev server and create 
 a secret token on the fly:
 
@@ -51,10 +58,6 @@ will also create a test-user with the following credentials:
     username: ingo@orgizm.net
     password: foobarbaz
 
-As for the development server use the following line to run the tests:
-
-    SECRET_TOKEN=$(rake secret) rake
-
 ## Tests
 
 This app comprises several kinds of tests. To successfully run
@@ -67,3 +70,7 @@ the tests, make sure you have the following dependencies installed:
 
 Make sure elasticsearch- as well as postgresql-daemon is running
 during test execution.
+
+As for the development server use the following line to run the tests:
+
+    SECRET_TOKEN=$(rake secret) rake
