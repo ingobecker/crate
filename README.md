@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ingobecker/crate.png?branch=master)](https://travis-ci.org/ingobecker/crate)
 [![Dependency Status](https://gemnasium.com/ingobecker/crate.png)](https://gemnasium.com/ingobecker/crate)
+[![Code Climate](https://codeclimate.com/github/ingobecker/crate.png)](https://codeclimate.com/github/ingobecker/crate)
 
 ## Overview
 
