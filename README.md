@@ -1,6 +1,7 @@
 # Crate - a rails work sample
 
 [![Build Status](https://travis-ci.org/ingobecker/crate.png?branch=master)](https://travis-ci.org/ingobecker/crate)
+[![Dependency Status](https://gemnasium.com/ingobecker/crate.png)](https://gemnasium.com/ingobecker/crate)
 
 ## Overview
 
