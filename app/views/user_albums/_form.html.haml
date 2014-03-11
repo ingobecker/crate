@@ -1,6 +1,4 @@
-- if resource.errors.any?
-  = resource.errors.inspect
-= simple_form_for resource, url: user_albums_path(resource), html: {novalidate: true} do |f|
+= simple_form_for resource, url: user_albums_path(resource), defaults: {right_column_html: {class: "col-lg-3 col-md-3"}, label_html: {class: "col-lg-2 col-md-2"} }, html: {class: "form-horizontal", role: "form"} do |f|
   = f.input :name, label: 'Album name'
   = f.simple_fields_for :artist do |artist_f|
     = artist_f.input :name, label: 'Artist name'
@@ -9,7 +7,7 @@
   .tracks
     = f.simple_fields_for :tracks do |tracks_f|
       = tracks_f.input :name, label: 'Track name',input_html: {class: 'name'}
-      = tracks_f.input :duration_str, input_html: {class: 'duration'}
+      = tracks_f.input :duration_str, input_html: {class: 'duration_str'}
   
   %button#add-track
     Add another track

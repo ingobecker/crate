@@ -3,7 +3,6 @@
 inputs = %w[
   CollectionSelectInput
   DateTimeInput
-  FileInput
   GroupedCollectionSelectInput
   NumericInput
   PasswordInput
@@ -71,5 +70,5 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: 'span', class: 'help-block has-error' }
   end
 
-  config.default_wrapper = :bootstrap3
+  config.default_wrapper = :bootstrap3_horizontal
 end

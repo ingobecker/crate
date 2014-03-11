@@ -31,20 +31,21 @@ feature 'Add album form', js: true do
     end
   end
 
-  scenario 'add one more track' do
+  scenario 'add one more track and create' do
     within('form#new_album') do
-      fill_in 'Track name', with: 'foo'
-      find_button('Create Album').click
-
-      expect(all('.tracks div.form-group').last[:class]).to include('has-error')
       find_button('Add another track').click
+      fill_in 'Album name', with: 'Album'
+      fill_in 'Artist name', with: 'Artist'
 
-      expect(page.all('.tracks input.name').count).to be(2)
-      expect(all('.tracks div.form-group').last[:class]).not_to include('has-error')
-
-      all('.tracks input')[-2..-1].each do |input|
-        input.should have_content('')
+      all('.tracks input.duration_str').each do |input|
+        input.set('23:42')
       end
+
+      all('.tracks input.name').each do |input|
+        input.set('foo')
+      end
+      find_button('Create Album').click
+      expect(URI.parse(current_url).request_uri).to eq(user_albums_path)
 
     end
   end

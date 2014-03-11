@@ -18,7 +18,7 @@ ready = ->
       num = $('form#new_album .tracks .form-group').length / 2
       last_track = $('.tracks .form-group').slice(-2)
       new_track = last_track.clone()
-      $.each ['name', 'duration'], (i, e)->
+      $.each ['name', 'duration_str'], (i, e)->
           new_track.find(".#{e}")
             .val('')
             .attr('name', "album[tracks_attributes][#{num}][#{e}]")
